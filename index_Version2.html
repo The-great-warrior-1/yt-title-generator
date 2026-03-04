@@ -1,0 +1,103 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>YouTube Title & Thumbnail Idea Generator</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <main class="app">
+    <header class="header-card">
+      <h1>YouTube Title & Thumbnail Idea Generator</h1>
+      <p class="subtitle">Enter a video topic and generate viral titles, thumbnail ideas, and SEO keywords.</p>
+
+      <!-- Input area: topic + new selects -->
+      <div class="input-row">
+        <input id="topicInput" type="text" placeholder="Enter your video topic (e.g. productivity hacks)" aria-label="Video topic" />
+
+        <div class="options-row" aria-hidden="false">
+          <label class="select-label">
+            <span class="label-title">Category/Niche</span>
+            <select id="categorySelect" aria-label="Category or niche">
+              <option value="Any">Any</option>
+              <option value="Tech">Tech</option>
+              <option value="Gaming">Gaming</option>
+              <option value="Education">Education</option>
+              <option value="Lifestyle">Lifestyle</option>
+              <option value="Health">Health</option>
+              <option value="Finance">Finance</option>
+              <option value="Food">Food</option>
+              <option value="Travel">Travel</option>
+            </select>
+          </label>
+
+          <label class="select-label">
+            <span class="label-title">Tone</span>
+            <select id="toneSelect" aria-label="Tone">
+              <option value="Any">Any</option>
+              <option value="Curious">Curious</option>
+              <option value="Shocking">Shocking</option>
+              <option value="Funny">Funny</option>
+              <option value="Inspirational">Inspirational</option>
+              <option value="Urgent">Urgent</option>
+            </select>
+          </label>
+
+          <label class="select-label">
+            <span class="label-title">Title Style</span>
+            <select id="styleSelect" aria-label="Title style">
+              <option value="Any">Any</option>
+              <option value="How-to">How-to</option>
+              <option value="Mistakes">Mistakes</option>
+              <option value="Secrets">Secrets</option>
+              <option value="List">List</option>
+              <option value="Story">Story</option>
+            </select>
+          </label>
+        </div>
+
+        <button id="generateBtn" class="btn-gradient">Generate Ideas</button>
+      </div>
+
+      <small class="hint">Tip: be specific for better suggestions (e.g. "vegan meal prep", "photo editing tips")</small>
+    </header>
+
+    <!-- Loading overlay shown while generating -->
+    <div id="loadingOverlay" class="loading-overlay hidden" aria-hidden="true">
+      <div class="spinner" role="status" aria-live="polite">
+        <div class="dot"></div><div class="dot"></div><div class="dot"></div>
+      </div>
+      <div class="loading-text">Generating ideas…</div>
+    </div>
+
+    <section class="results-grid">
+      <article class="card" id="titlesCard">
+        <div class="card-header">
+          <h2>Viral Titles</h2>
+          <div class="card-actions">
+            <button id="copyAllTitles" class="small-btn" title="Copy all titles">Copy All</button>
+          </div>
+        </div>
+        <ol id="titlesList" class="result-list" aria-live="polite"></ol>
+      </article>
+
+      <article class="card" id="thumbnailsCard">
+        <h2>Thumbnail Ideas</h2>
+        <ol id="thumbnailsList" class="result-list" aria-live="polite"></ol>
+      </article>
+
+      <article class="card" id="keywordsCard">
+        <h2>Keywords</h2>
+        <ul id="keywordsList" class="result-list" aria-live="polite"></ul>
+      </article>
+    </section>
+
+    <footer class="footer">
+      <small>Built for quick ideation — runs fully in your browser.</small>
+    </footer>
+  </main>
+
+  <script src="script.js"></script>
+</body>
+</html>
